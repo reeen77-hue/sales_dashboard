@@ -120,7 +120,5 @@ python -m streamlit run app/app.py
 ## 補足
 
 本プロジェクトは、**データ分析・可視化の基礎設計力を示すポートフォリオ**として作成しています。
-## Dashboard Preview
 
-![Sales Dashboard](images/dashboard_overview.png)
 
