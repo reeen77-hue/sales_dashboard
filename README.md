@@ -39,8 +39,26 @@ Pythonでダミーデータを設計・生成し、Streamlitを用いて
 | transactions | 取引数（客数の近似）                     |
 
 ※ transactions は「1人で複数点購入する」ケースを想定し、数量より小さくなるよう設計しています。
-
 ---
+
+## データ / 分析フロー概要（Pipeline）
+
+```text
+Raw CSV (sales_daily.csv)
+        │
+        ▼
+Data Filtering (store / gender / date)
+        │
+        ▼
+KPI Calculation
+(Sales, Qty, Transactions, AOV, UPT)
+        │
+        ▼
+Visualization (Streamlit)
+ - Line chart (daily sales)
+ - Bar chart (product / gender)
+ - Raw data table
+
 
 ## ダッシュボードでできること
 
@@ -100,12 +118,16 @@ Pythonでダミーデータを設計・生成し、Streamlitを用いて
 
 ---
 
-## 今後の改善案
+## 今後の改善案（実務を想定した拡張）
+
+本ダッシュボードは「現場での数字把握」を目的とした最小構成です。
+実務利用を想定した場合、以下の拡張が考えられます。
 
 * セール期間フラグ追加（通常期 vs セール期の比較）
-* 在庫データ追加（欠品影響の可視化）
-* 商品×性別のクロス分析
-* 実データ接続やクラウド公開
+* 在庫データ追加（欠品による機会損失の可視化）
+* 商品 × 性別のクロス分析
+* 実データ接続やクラウド公開（共有・運用）
+
 
 ---
 
@@ -114,6 +136,19 @@ Pythonでダミーデータを設計・生成し、Streamlitを用いて
 ```bash
 python -m streamlit run app/app.py
 ```
+---
+
+## プロジェクト構成
+
+```text
+sales_dashboard/
+├─ data/
+│  └─ sales_daily.csv
+├─ app/
+│  └─ app.py
+├─ src/
+│  └─ data_loader.py（必要に応じて分離）
+└─ README.md
 
 ---
 
