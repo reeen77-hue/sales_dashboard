@@ -156,4 +156,6 @@ sales_dashboard/
 
 本プロジェクトは、**データ分析・可視化の基礎設計力を示すポートフォリオ**として作成しています。
 
+### SQL集計結果（SQLite）
+![SQL Final Summary](images/sql_final_summary.png)
 
