@@ -154,7 +154,6 @@ Pythonでの可視化に加え、**SQL単体でも数字を説明できる構成
 python -m streamlit run app/app.py
 ```
 ---
-
 ## プロジェクト構成
 
 sales_dashboard/
@@ -173,7 +172,6 @@ sales_dashboard/
 ├─ images/
 │  └─ sql_final_summary.png    # SQL結果スクリーンショット
 └─ README.md                   # プロジェクト全体説明
-
 
 ---
 
