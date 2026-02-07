@@ -156,22 +156,24 @@ python -m streamlit run app/app.py
 ---
 ## プロジェクト構成
 
+```text
 sales_dashboard/
 ├─ data/
-│  └─ sales_daily.csv          # 元データ（ダミー）
+│  └─ sales_daily.csv            # 元データ（ダミー）
 ├─ sql_practice/
-│  ├─ sales.db                 # SQLiteデータベース
-│  ├─ import_csv_to_sqlite.py  # CSV → SQLite 取り込み
-│  ├─ final_summary.sql        # SQL集計・KPI算出
-│  ├─ 11_sanity.sql            # 取り込み確認用（任意）
-│  └─ README.md                # SQL補足説明（任意）
+│  ├─ sales.db                   # SQLiteデータベース
+│  ├─ import_csv_to_sqlite.py    # CSV → SQLite 取り込み
+│  ├─ final_summary.sql          # SQL集計・KPI算出
+│  ├─ 11_sanity.sql              # 取り込み確認用（任意）
+│  └─ README.md                  # SQL補足説明（任意）
 ├─ app/
-│  └─ app.py                   # Streamlitダッシュボード
+│  └─ app.py                     # Streamlitダッシュボード
 ├─ src/
-│  └─ data_loader.py           # データ読み込み処理
+│  └─ data_loader.py             # データ読み込み処理
 ├─ images/
-│  └─ sql_final_summary.png    # SQL結果スクリーンショット
-└─ README.md                   # プロジェクト全体説明
+│  └─ sql_final_summary.png      # SQL結果スクリーンショット
+└─ README.md                     # プロジェクト全体説明
+
 
 ---
 
