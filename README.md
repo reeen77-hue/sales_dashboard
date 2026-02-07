@@ -60,8 +60,6 @@ Python / Streamlit
  - ダッシュボード表示
 
 ## SQLによる集計・KPI算出（SQLite）
-![SQL Final Summary](images/sql_final_summary.png)
-
 
 売上CSVデータはSQLiteに取り込み、SQLを用いて集計・KPI算出を行っています。
 Pythonでの可視化に加え、**SQL単体でも数字を説明できる構成**を意識しました。
