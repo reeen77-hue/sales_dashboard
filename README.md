@@ -164,7 +164,8 @@ sales_dashboard/
 │  ├─ sales.db                 # SQLiteデータベース
 │  ├─ import_csv_to_sqlite.py  # CSV → SQLite 取り込み
 │  ├─ final_summary.sql        # SQL集計・KPI算出
-│  └─ 11_sanity.sql            # 取り込み確認用（任意）
+│  ├─ 11_sanity.sql            # 取り込み確認用（任意）
+│  └─ README.md                # SQL補足説明（任意）
 ├─ app/
 │  └─ app.py                   # Streamlitダッシュボード
 ├─ src/
@@ -172,6 +173,7 @@ sales_dashboard/
 ├─ images/
 │  └─ sql_final_summary.png    # SQL結果スクリーンショット
 └─ README.md                   # プロジェクト全体説明
+
 
 ---
 
