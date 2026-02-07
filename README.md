@@ -17,11 +17,11 @@ Pythonでダミーデータを設計・生成し、Streamlitを用いて
 ## 使用技術
 
 * Python
-* pandas
-* numpy
+* pandas / numpy
+* SQLite
+* SQL
 * matplotlib
 * Streamlit
-
 ---
 
 ## データ設計（ダミーCSV）
@@ -47,18 +47,35 @@ Pythonでダミーデータを設計・生成し、Streamlitを用いて
 Raw CSV (sales_daily.csv)
         │
         ▼
-Data Filtering (store / gender / date)
+SQLite への取り込み
         │
         ▼
-KPI Calculation
-(Sales, Qty, Transactions, AOV, UPT)
+SQLによる集計・KPI算出
+(product / gender / transactions)
         │
         ▼
-Visualization (Streamlit)
- - Line chart (daily sales)
- - Bar chart (product / gender)
- - Raw data table
+Python / Streamlit
+ - フィルタリング
+ - 可視化
+ - ダッシュボード表示
 
+## SQLによる集計・KPI算出（SQLite）
+
+売上CSVデータはSQLiteに取り込み、SQLを用いて集計・KPI算出を行っています。
+Pythonでの可視化に加え、**SQL単体でも数字を説明できる構成**を意識しました。
+
+### 実施内容
+- SQLiteへのCSV取り込み
+- 商品コード（product_code）別の売上・数量集計
+- transactions列を用いたKPI算出（AOV / UPT）
+
+### 集計結果例
+![SQL Final Summary](images/sql_final_summary.png)
+
+### 業務での活用イメージ
+- 主力商品（501 / 502 / 511）の売上構成把握
+- 客数・客単価・点数を分解した売上分析
+- Pythonダッシュボードやレポートへの再利用
 
 ## ダッシュボードでできること
 
@@ -140,15 +157,21 @@ python -m streamlit run app/app.py
 
 ## プロジェクト構成
 
-```text
 sales_dashboard/
 ├─ data/
-│  └─ sales_daily.csv
+│  └─ sales_daily.csv          # 元データ（ダミー）
+├─ sql_practice/
+│  ├─ sales.db                 # SQLiteデータベース
+│  ├─ import_csv_to_sqlite.py  # CSV → SQLite 取り込み
+│  ├─ final_summary.sql        # SQL集計・KPI算出
+│  └─ 11_sanity.sql            # 取り込み確認用（任意）
 ├─ app/
-│  └─ app.py
+│  └─ app.py                   # Streamlitダッシュボード
 ├─ src/
-│  └─ data_loader.py（必要に応じて分離）
-└─ README.md
+│  └─ data_loader.py           # データ読み込み処理
+├─ images/
+│  └─ sql_final_summary.png    # SQL結果スクリーンショット
+└─ README.md                   # プロジェクト全体説明
 
 ---
 
